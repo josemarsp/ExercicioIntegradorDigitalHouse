@@ -7,11 +7,12 @@ public abstract class Professor {
     private Integer tempoProfessor;
     private Integer codProfessor;
 
-    public Professor(String nomeProfessor, String sobrenomeProfessor, Integer tempoProfessor, Integer codProfessor) {
+    public Professor(String nomeProfessor, String sobrenomeProfessor, Integer codProfessor, Integer tempoProfessor) {
         this.nomeProfessor = nomeProfessor;
         this.sobrenomeProfessor = sobrenomeProfessor;
-        this.tempoProfessor = tempoProfessor;
         this.codProfessor = codProfessor;
+        this.tempoProfessor = tempoProfessor;
+
     }
 
     public String getNomeProfessor() {
@@ -46,5 +47,13 @@ public abstract class Professor {
         this.codProfessor = codProfessor;
     }
 
-
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "nomeProfessor='" + nomeProfessor + '\'' +
+                ", sobrenomeProfessor='" + sobrenomeProfessor + '\'' +
+                ", tempoProfessor=" + tempoProfessor +
+                ", codProfessor=" + codProfessor +
+                '}';
+    }
 }

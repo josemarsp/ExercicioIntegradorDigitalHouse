@@ -1,5 +1,7 @@
 package br.digitalhouse.EntregavelJava;
 
+import java.util.Objects;
+
 public class Aluno {
 
     private String nomeAluno;
@@ -34,6 +36,29 @@ public class Aluno {
 
     public void setCodAluno(Integer codAluno) {
         this.codAluno = codAluno;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Aluno aluno = (Aluno) o;
+        return codAluno.equals(aluno.codAluno);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codAluno);
+    }
+
+
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "nomeAluno='" + nomeAluno + '\'' +
+                ", sobrenomeAluno='" + sobrenomeAluno + '\'' +
+                ", codAluno=" + codAluno +
+                '}';
     }
 }
 

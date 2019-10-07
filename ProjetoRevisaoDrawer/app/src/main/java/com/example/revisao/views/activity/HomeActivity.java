@@ -130,12 +130,12 @@ public class HomeActivity extends AppCompatActivity implements Comunicador {
                 .commit();
     }
 
-    private void replaceFragment (int container, Fragment fragment){
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(container, fragment);
-        transaction.commit();
-    }
+   private void replaceFragment (int container, Fragment fragment){
+       FragmentManager manager = getSupportFragmentManager();
+       FragmentTransaction transaction = manager.beginTransaction();
+       transaction.replace(container, fragment);
+       transaction.commit();
+   }
 
     private void setBundleToFragment(Dados dados, String CHAVE) {
         Bundle bundle = new Bundle();

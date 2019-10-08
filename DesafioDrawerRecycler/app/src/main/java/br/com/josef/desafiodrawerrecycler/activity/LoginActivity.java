@@ -1,4 +1,4 @@
-package br.com.josef.desafiodrawerrecycler.view;
+package br.com.josef.desafiodrawerrecycler.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

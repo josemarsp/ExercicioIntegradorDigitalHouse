@@ -1,4 +1,4 @@
-package br.com.josef.desafiodrawerrecycler;
+package br.com.josef.desafiodrawerrecycler.view;
 
 import android.os.Bundle;
 
@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,9 +22,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class MainActivity extends AppCompatActivity {
+import br.com.josef.desafiodrawerrecycler.R;
 
+public class MainActivity extends AppCompatActivity {
+    private DrawerLayout drawer;
     private AppBarConfiguration mAppBarConfiguration;
+    public static final String FOOD_KEY = "food";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +37,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-
-
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
-                .setDrawerLayout(drawer)
-                .build();
 
     }
 

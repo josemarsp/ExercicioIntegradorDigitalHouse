@@ -28,6 +28,8 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
         this.listener = listener;
     }
 
+
+
     @NonNull
     @Override
     public ViewHolderRestaurantes onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

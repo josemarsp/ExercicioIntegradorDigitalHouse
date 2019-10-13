@@ -13,8 +13,6 @@ import br.com.josef.desafiodrawerrecycler.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static final String EMAIL_KEY = "email";
-    public static final String SENHA_KEY = "senha";
 
     private TextInputLayout txtEmail;
     private TextInputLayout txtSenha;
@@ -42,11 +40,12 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private void initViews() {
-        txtEmail = findViewById(R.id.txtLEmail);
-        txtSenha = findViewById(R.id.txtLPassword);
+        txtEmail = findViewById(R.id.txtLEmailLogin);
+        txtSenha = findViewById(R.id.txtLPasswordLogin);
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
     }
@@ -55,21 +54,33 @@ public class LoginActivity extends AppCompatActivity {
         String email = txtEmail.getEditText().getText().toString();
         String senha = txtSenha.getEditText().getText().toString();
 
-//        if (!email.isEmpty()) {
-//            txtEmail.setError("Email não pode ser vazio");
-//            return;
-//        }
-//
-//        if (!senha.isEmpty()) {
-//            txtSenha.setError("Senha não pode ser branca");
-//            return;
-//        }
+        txtEmail.setError(null);
+        txtSenha.setError(null);
+
+        int ValidaEmail = email.indexOf("@");
+
+        if (email.isEmpty()) {
+            txtEmail.setError("Email não pode ser vazio");
+            return;
+        } else if (ValidaEmail <= 0) {
+            txtEmail.setError("Email precisa ter @");
+            return;
+        }
+
+
+        if (senha.isEmpty()) {
+            txtSenha.setError("Senha não pode ser branca");
+            return;
+        } else if (senha.length() < 6) {
+            txtSenha.setError("A senha precisa ter 6 caracteres ou mais");
+            return;
+        }
 
         if (!email.isEmpty() && !senha.isEmpty()) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
             Bundle bundle = new Bundle();
-            bundle.putString(EMAIL_KEY, email);
-            bundle.putString(SENHA_KEY, senha);
+            bundle.putString("EMAIL", email);
+            bundle.putString("SENHA", senha);
             intent.putExtras(bundle);
             startActivity(intent);
         }

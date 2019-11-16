@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -38,10 +39,10 @@ public class MainActivity extends AppCompatActivity implements OnClick {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-        viewModel.getLoading().observe(this, loading ->{
-            if(loading){
+        viewModel.getLoading().observe(this, loading -> {
+            if (loading) {
                 progressBar.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 progressBar.setVisibility(View.GONE);
             }
         });
@@ -52,13 +53,12 @@ public class MainActivity extends AppCompatActivity implements OnClick {
         });
 
 
-
     }
 
-    public void initViews(){
+    public void initViews() {
         recyclerView = findViewById(R.id.recyclerView);
         progressBar = findViewById(R.id.progressBar);
-        adapter = new RecyclerViewAdapter(listaComics,  this);
+        adapter = new RecyclerViewAdapter(listaComics, this);
         viewModel = ViewModelProviders.of(this).get(ComicsViewModel.class);
 
 
@@ -66,6 +66,11 @@ public class MainActivity extends AppCompatActivity implements OnClick {
 
     @Override
     public void click(Result result) {
+        Intent intent = new Intent(MainActivity.this, DetalheActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("Result", result);
+        intent.putExtras(bundle);
+        startActivity(intent);
 
     }
 }

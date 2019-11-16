@@ -39,7 +39,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Result result = comicsList.get(position);
         holder.onBind(result);
 
-        holder.itemView.setOnClickListener(v -> listener.click(result));
+        holder.itemView.setOnClickListener(v -> listener.   click(result));
 
     }
 

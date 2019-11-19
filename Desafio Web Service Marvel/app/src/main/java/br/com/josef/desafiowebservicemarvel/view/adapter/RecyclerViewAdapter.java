@@ -73,7 +73,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             txtTitulo.setText(result.getTitle());
 
-          Picasso.get().load(result.getThumbnail().getPath()+".jpg").into(imageComic);
+         Picasso.get().load(result.getThumbnail().getPath()+"/portrait_uncanny.jpg").into(imageComic);
+         // Picasso.get().load(result.getImages().get(0).getPath()+".jpg").into(imageComic);
             //Picasso.get().load(result.getThumbnail().getPath()+"/portrait_xlarge.jpg").into(imageComic);
         }
     }

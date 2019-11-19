@@ -71,6 +71,8 @@ public class Result implements Parcelable {
     private List<Object> variants;
 
     protected Result(Parcel in) {
+        dates = in.createTypedArrayList(Date.CREATOR);
+        //magina braba
         description = in.readString();
         diamondCode = in.readString();
         if (in.readByte() == 0) {
@@ -98,7 +100,11 @@ public class Result implements Parcelable {
         } else {
             pageCount = in.readLong();
         }
+        prices = in.createTypedArrayList(Price.CREATOR);
+        //outra
         resourceURI = in.readString();
+        thumbnail = in.readParcelable(Thumbnail.class.getClassLoader());
+        //outra
         title = in.readString();
         upc = in.readString();
         variantDescription = in.readString();
@@ -355,6 +361,8 @@ public class Result implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedList(dates);
+        //outra
         dest.writeString(description);
         dest.writeString(diamondCode);
         if (digitalId == null) {
@@ -386,7 +394,11 @@ public class Result implements Parcelable {
             dest.writeByte((byte) 1);
             dest.writeLong(pageCount);
         }
+        dest.writeTypedList(prices);
+        //outra
         dest.writeString(resourceURI);
+        dest.writeParcelable(thumbnail, flags);
+        //outra
         dest.writeString(title);
         dest.writeString(upc);
         dest.writeString(variantDescription);

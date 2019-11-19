@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements OnClick {
         initViews();
 
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
 
         viewModel.getLoading().observe(this, loading -> {
             if (loading) {
